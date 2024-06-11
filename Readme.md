@@ -1,6 +1,6 @@
-# AI Chatbot using Llama 2, Node.js, and React
+# AI Chatbot with File Upload and Text-to-Speech using Flask, React, and HuggingFace
 
-This project is an AI chatbot powered by Llama 2, with a Node.js backend and a React frontend. The chatbot processes user queries using the Llama 2 model and provides responses in real-time.
+This project is an AI chatbot built with a Flask backend and a React frontend. It includes functionalities for storing messages, uploading files, and converting text to speech using the HuggingFace API.
 
 ## Table of Contents
 - [Features](#features)
@@ -10,41 +10,51 @@ This project is an AI chatbot powered by Llama 2, with a Node.js backend and a R
 - [License](#license)
 
 ## Features
-- Interactive chat interface
-- Real-time responses using Llama 2
-- Simple and intuitive user interface
-- Scalable backend built with Node.js and Express
+- Chat interface for sending and receiving messages.
+- File upload functionality.
+- Text-to-speech conversion using HuggingFace API.
+- React frontend served by Flask backend.
 
 ## Installation
 
 ### Prerequisites
+- Python (>=3.6)
 - Node.js (>=14.x)
 - npm (>=6.x)
+- Flask (>=2.x)
 - React (>=17.x)
 
 ### Backend Setup
+
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/ai-chatbot-llama2.git
-    cd ai-chatbot-llama2/backend
+    git clone https://github.com/yourusername/ai-chatbot-flask-react.git
+    cd ai-chatbot-flask-react/backend
     ```
 
-2. Install dependencies:
+2. Create a virtual environment and activate it:
     ```sh
-    npm install
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
     ```
 
-3. Create a `.env` file in the `backend` directory and add your API key for the Llama 2 model:
+3. Install dependencies:
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+4. Create a `.env` file in the `backend` directory and add your HuggingFace API key:
     ```env
-    LLAMA_API_KEY=your_llama_api_key_here
+    HUGGINGFACE_API_KEY=your_huggingface_api_key_here
     ```
 
-4. Start the server:
+5. Start the Flask server:
     ```sh
-    npm start
+    flask run
     ```
 
 ### Frontend Setup
+
 1. Navigate to the `frontend` directory:
     ```sh
     cd ../frontend
@@ -55,18 +65,31 @@ This project is an AI chatbot powered by Llama 2, with a Node.js backend and a R
     npm install
     ```
 
-3. Start the React app:
+3. Build the React app:
     ```sh
-    npm start
+    npm run build
     ```
 
+4. Serve the React app:
+    The React app is served by the Flask backend. Ensure the Flask server is running.
+
 ## Usage
-1. Ensure both the backend and frontend are running.
-2. Open your browser and navigate to `http://localhost:3000`.
-3. Interact with the chatbot by typing a question and clicking "Send".
+
+1. Ensure the Flask server is running.
+2. Open your browser and navigate to `http://localhost:5000`.
+3. Interact with the chatbot, upload files, and convert text to speech.
+
+### API Endpoints
+
+- **GET /api/messages**: Retrieve all messages.
+- **POST /api/messages**: Add a new message.
+- **POST /api/upload**: Upload a file.
+- **GET /api/tts?text=your_text**: Convert text to speech and return the audio file.
 
 ## Contributing
+
 Contributions are welcome! Please follow these steps:
+
 1. Fork the repository.
 2. Create a new branch:
     ```sh
@@ -81,4 +104,4 @@ Contributions are welcome! Please follow these steps:
     git push origin feature-name
     ```
 5. Open a pull request.
-   IFYKYK
+IFYKYK
